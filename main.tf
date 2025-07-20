@@ -4,7 +4,7 @@ provider "aws" {
 
 # Upload public key to AWS as Key Pair
 resource "aws_key_pair" "shubham" {
-  key_name   = var.key_name
+  key_name   = "shubham-key"
   public_key = file("home/ubuntu/.ssh/shubham.pub")
 }
 
@@ -72,7 +72,7 @@ resource "aws_security_group" "sandbox_sg" {
 
 # Web Server
 resource "aws_instance" "web_server" {
-  ami                         = "ami-0150ccaf51ab55a51"  # Ubuntu 24.04 LTS
+  ami                         = "ami-020cba7c55df1f615"  # Ubuntu 24.04 LTS
   instance_type               = "t2.micro"
   subnet_id                   = aws_subnet.sandbox_subnet.id
   associate_public_ip_address = true
